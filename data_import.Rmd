@@ -11,6 +11,13 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
+
+##Load in the litters data
+```{r}
+litters_data = read_csv(file="./data/FAS_litters.csv")
+litters_data = janitor::clean_names(litters_data)
+```
+
 ## R Markdown
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
