@@ -18,6 +18,16 @@ litters_data = read_csv(file="./data/FAS_litters.csv")
 litters_data = janitor::clean_names(litters_data)
 ```
 
+##Load in the pups data
+
+
+```{r}
+pups_data = read_csv("./data/FAS_pups.csv")
+puppups_data = janitor::clean_names(pups_data)
+```
+
+
+
 ## R Markdown
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
