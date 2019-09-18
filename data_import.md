@@ -25,6 +25,8 @@ litters_data = read_csv(file="./data/FAS_litters.csv")
 litters_data = janitor::clean_names(litters_data)
 ```
 
+## The package::function syntax lets you use a function from a package without loading the whole library. That’s really helpful, because some packages have functions with the same name (e.g. dplyr::filter and stats::filter), and R has to choose which one you mean. In general, only load the packages you need to prevent this kind of confusion
+
 \#\#Load in the pups data
 
 ``` r
@@ -43,6 +45,40 @@ pups_data = read_csv("./data/FAS_pups.csv")
 
 ``` r
 puppups_data = janitor::clean_names(pups_data)
+```
+
+## Play with Column parsing
+
+``` r
+litters_data = read_csv(file = "./data/FAS_litters.csv",
+  col_types = cols(
+    Group = col_character(),
+    `Litter Number` = col_character(),
+    `GD0 weight` = col_double(),
+    `GD18 weight` = col_double(),
+    `GD of Birth` = col_integer(),
+    `Pups born alive` = col_integer(),
+    `Pups dead @ birth` = col_integer(),
+    `Pups survive` = col_integer()
+  )
+)
+```
+
+\#\#Read in an excel file…
+
+``` r
+mlb11_data = 
+  read_excel(
+    path = "./data/mlb11.xlsx",
+    range = "A1:D7")
+
+mlb11_data = read_excel(path = "./data/mlb11.xlsx")
+```
+
+## Read in SAS…
+
+``` r
+pulse_data = haven::read_sas("./data/public_pulse_data.sas7bdat")
 ```
 
 ## R Markdown
