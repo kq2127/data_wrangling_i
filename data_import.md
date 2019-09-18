@@ -3,7 +3,7 @@ Data Import
 Kristal Quispe
 9/17/2019
 
-\#\#Load in the litters data
+\#\#Load in the litters data using a relative path
 
 ``` r
 litters_data = read_csv(file="./data/FAS_litters.csv")
@@ -24,6 +24,24 @@ litters_data = read_csv(file="./data/FAS_litters.csv")
 ``` r
 litters_data = janitor::clean_names(litters_data)
 ```
+
+## … using an absolute path
+
+``` r
+litters_data = read_csv(file="/Users/kriqu/Desktop/data_wrangling_i/data/FAS_litters.csv")
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   Group = col_character(),
+    ##   `Litter Number` = col_character(),
+    ##   `GD0 weight` = col_double(),
+    ##   `GD18 weight` = col_double(),
+    ##   `GD of Birth` = col_double(),
+    ##   `Pups born alive` = col_double(),
+    ##   `Pups dead @ birth` = col_double(),
+    ##   `Pups survive` = col_double()
+    ## )
 
 ## The package::function syntax lets you use a function from a package without loading the whole library. That’s really helpful, because some packages have functions with the same name (e.g. dplyr::filter and stats::filter), and R has to choose which one you mean. In general, only load the packages you need to prevent this kind of confusion
 
@@ -72,7 +90,21 @@ mlb11_data =
     path = "./data/mlb11.xlsx",
     range = "A1:D7")
 
+##OR
+
 mlb11_data = read_excel(path = "./data/mlb11.xlsx")
+```
+
+\#\#Creating a small subset of the mlb data and exporting subset as a
+file
+
+``` r
+mlb11_data_subset = 
+  read_excel(
+    path = "./data/mlb11.xlsx", 
+    range = "A1:D7")
+
+write_csv(mlb11_data_subset, path = "./data/mlb_subset.csv")
 ```
 
 ## Read in SAS…
