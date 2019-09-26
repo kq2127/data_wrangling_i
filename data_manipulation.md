@@ -671,3 +671,7 @@ arrange(litters_data, pups_born_alive, gd0_weight)
 ``` r
 #Arrange on pup_born alive in ascending order (default), and then order by weight at gd0.
 ```
+
+## pipe…
+
+Create a collection of commands…
