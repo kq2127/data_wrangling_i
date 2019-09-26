@@ -2,7 +2,7 @@
 title: "Data Manipulation"
 author: "Kristal Quispe"
 date: "9/26/2019"
-output: github_document_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
@@ -49,3 +49,49 @@ rename(litters_data, GROUP = group)
 ```
 
 ## Filtering!!!!
+
+```{r}
+filter(litters_data, group == "Con7")
+
+## one = would assign group to Con7, and two == asks is group equal to Con7
+
+filter(litters_data,gd_of_birth == 20 )
+
+filter(litters_data, gd_of_birth < 20)
+
+filter(litters_data, gd_of_birth >= 20)
+
+filter(litters_data, pups_born_alive < 6)
+
+filter(litters_data, pups_born_alive < 6, group == "Con7" )
+
+# != means does not equal. for multiple conditions you can use a comma or a and sign &
+
+filter(litters_data, group == "Con7" | group == "Mod8")
+
+filter(litters_data, group %in% c("Con7", "Con8"))
+
+# | is the OR Statement, and is the same as the IN statement
+
+filter(litters_data, pups_born_alive >= 4, pups_born_alive <=6)
+# R isnt good at ranges so use a less than and greater than part to get at a range
+
+filter(litters_data, gd0_weight + gd18_weight < 70)
+
+filter(litters_data, gd0_weight > gd18_weight)
+
+filter(litters_data, is.na(gd0_weight))
+
+
+filter(litters_data, !is.na(gd0_weight))
+# Dont do the !is.na code to get data without missing values. 
+
+drop_na(litters_data)
+#This will only give me complete cases
+
+drop_na(litters_data, gd0_weight)
+#Will only drop rows where gd0_weight is NA, but not where any other variable is NA
+
+
+```
+
