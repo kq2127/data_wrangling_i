@@ -9,6 +9,43 @@ output: github_document_document
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-library(readxl)
 ```
 
+## Import datasets
+```{r}
+litters_data = read_csv("./data/FAS_litters.csv")
+litters_data = janitor::clean_names(litters_data)
+
+pups_data = read_csv("./data/FAS_pups.csv")
+pups_data = janitor::clean_names(pups_data)
+```
+
+
+## Selecting!!!
+
+```{r}
+select(litters_data, group, litter_number)
+
+select(litters_data, group, litter_number, gd0_weight)
+
+select(litters_data, litter_number, gd0_weight, starts_with("pups"))
+
+select(litters_data, litter_number, group, gd0_weight)
+
+select(litters_data, litter_number, group, everything())
+
+## Here if you had selected just the helper everything function you would still get all the same variables in the output but you woudnt have it in the order with litter number firt, group second, followed by everything else. 
+
+select(litters_data, -group)
+
+select(litters_data, litter_number, gd0_weight:pups_born_alive)
+
+litters_selected = select(litters_data, litter_number, gd0_weight:pups_born_alive)
+
+select(litters_data, GROUP = group, litter_number)
+
+rename(litters_data, GROUP = group)
+
+```
+
+## Filtering!!!!
