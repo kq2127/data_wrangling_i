@@ -675,3 +675,30 @@ arrange(litters_data, pups_born_alive, gd0_weight)
 ## pipe…
 
 Create a collection of commands…
+
+``` r
+litters_data =
+  read.csv("./data/FAS_litters.csv")%>% 
+  janitor::clean_names() %>% 
+  select(-pups_survive) %>% 
+  mutate(
+    wt_gain = gd18_weight - gd0_weight,
+    group = str_to_lower(group))%>% 
+  drop_na(gd0_weight)
+```
+
+``` r
+litters_data %>% view()
+
+litters_data%>% pull(gd0_weight)%>% mean
+## You only get a mean value when you drop the missing data from the gd0_weight column
+```
+
+don’t worry about this much right now
+
+``` r
+litters_data =
+  read.csv("./data/FAS_litters.csv")%>% 
+  janitor::clean_names(dat = .) %>% 
+  select(.data = ., -pups_survive)
+```
