@@ -19,3 +19,12 @@ pulse_data =
     visit = recode(visit, "bl" = "00m")
   )
 ```
+
+## Seperate in litters
+
+``` r
+litters_data=
+  read.csv("./data/FAS_litters.csv")%>% 
+  janitor::clean_names() %>% 
+  separate(col = group, into =c("dose", "day_of_tx"),3)
+```
