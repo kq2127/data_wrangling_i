@@ -28,3 +28,13 @@ litters_data=
   janitor::clean_names() %>% 
   separate(col = group, into =c("dose", "day_of_tx"),3)
 ```
+
+## go untidy (long to wide)
+
+``` r
+analysis_result = tibble(
+  group = c("treatment", "treatment", "placebo", "placebo"),
+  time = c("pre", "post", "pre", "post"),
+  mean = c(4, 8, 3.5, 4)
+)
+```

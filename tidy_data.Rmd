@@ -40,3 +40,15 @@ litters_data=
   
 ```
 
+
+## go untidy (long to wide)
+
+
+```{r}
+analysis_result = tibble(
+  group = c("treatment", "treatment", "placebo", "placebo"),
+  time = c("pre", "post", "pre", "post"),
+  mean = c(4, 8, 3.5, 4)
+)
+```
+
