@@ -1,0 +1,12 @@
+---
+title: "Tidy Data"
+author: "Kristal Quispe"
+date: "9/27/2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
